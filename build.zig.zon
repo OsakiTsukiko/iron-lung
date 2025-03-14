@@ -1,0 +1,13 @@
+.{
+    .name = .iron_lung,
+    .version = "0.0.0",
+    .fingerprint = 0x69def5226bcef94, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.14.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "LICENSE",
+    },
+}
