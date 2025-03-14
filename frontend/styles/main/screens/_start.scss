@@ -1,0 +1,166 @@
+@use "../../theme";
+
+.start {
+    display: flex;
+    flex-direction: column;
+    background: theme.$base-color-darker;
+
+    .content {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .center {
+            width: fit-content;
+            height: fit-content;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+
+            .host,
+            .join {
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                .title {
+                    font-weight: 900;
+                    font-size: 64px;
+                    color: theme.$base-color-darkestest;
+                }
+
+                .ti-label {
+                    width: 100%;
+                }
+
+                .text-input {
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    background: theme.$base-color-darkest;
+                    box-shadow: 0px 10px theme.$base-color-darkestest;
+                    margin-bottom: 10px;
+                    transition: 0.25s;
+                    border-radius: 5px;
+                    gap: 10px;
+                    cursor: pointer;
+
+                    &:has(input:focus) {
+                        transform: translateY(5px);
+                        box-shadow: 0px 5px theme.$base-color-darkestest;
+                    }
+
+                    .input-cont {
+                        width: 100%;
+                        height: 100%;
+
+                        input {
+                            width: 100%;
+                            background: transparent;
+                            border: 0px;
+                            font-size: 20px;
+                            outline: none;
+
+                            color: theme.$text-color;
+                        }
+                    }
+
+                    .label {
+                        height: 100%;
+                        width: fit-content;
+
+                        span {
+                            font-size: 20px;
+                            font-weight: 900;
+                            // color: theme.$base-color;
+                            color: theme.$base-color-darkestest;
+                        }
+                    }
+                }
+
+                .button {
+                    width: 100%;
+                    height: fit-content;
+                    box-sizing: border-box;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    font-size: 20px;
+                    font-weight: 900;
+                    color: theme.$accent-color-darkest;
+
+                    border-radius: 5px;
+                    background: theme.$accent-color;
+                    box-shadow: 0px 10px theme.$accent-color-darkest;
+                    margin-bottom: 10px;
+                    transition: 0.25s;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: translateY(3px);
+                        box-shadow: 0px 7px theme.$accent-color-darkest;
+                    }
+
+                    &:active {
+                        transform: translateY(7px);
+                        box-shadow: 0px 3px theme.$accent-color-darkest;
+                    }
+                }
+            }
+
+            .separator-cont {
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                font-weight: 900;
+                font-size: 20px;
+                // color: theme.$base-color-darkestest;
+                color: theme.$base-color-darkest;
+
+                .separator {
+                    width: 100%;
+                    height: 5px;
+
+                    border-radius: 2.5px;
+                    // background: theme.$base-color-darkestest;
+                    background: theme.$base-color-darkest;
+                }
+            }
+        }
+    }
+
+    .footer {
+        box-sizing: border-box;
+        background: theme.$base-color-darkest;
+        padding: 10px;
+        display: flex;
+        justify-content: end;
+
+        color: theme.$base-color;
+        font-weight: 900;
+    }
+}
