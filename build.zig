@@ -31,8 +31,17 @@ pub fn build(b: *std.Build) void {
         run_cmd.addArgs(args);
     }
 
-    const run_step = b.step("run", "Run the app");
-    run_step.dependOn(&run_cmd.step);
+    const compile_scss_cmd = b.addSystemCommand(&[_][]const u8{ "sass", "frontend/styles/styles.scss", "frontend/styles/styles.css" });
+
+    const compile_scss = b.step("scss", "Compile Scss");
+    compile_scss.dependOn(&compile_scss_cmd.step);
+
+    const run_zig_step = b.step("run-zig", "Run the backend.");
+    run_zig_step.dependOn(&run_cmd.step);
+
+    const run_full_step = b.step("run-full", "Run the app.");
+    run_full_step.dependOn(compile_scss);
+    run_full_step.dependOn(&run_cmd.step);
 
     const exe_unit_tests = b.addTest(.{
         .root_module = exe_mod,
