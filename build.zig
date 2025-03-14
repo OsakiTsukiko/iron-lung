@@ -15,6 +15,14 @@ pub fn build(b: *std.Build) void {
         .root_module = exe_mod,
     });
 
+    const zig_webui = b.dependency("zig_webui", .{
+        .target = target,
+        .optimize = optimize,
+        .enable_tls = false, // whether enable tls support
+        .is_static = true, // whether static link
+    });
+    exe.root_module.addImport("webui", zig_webui.module("webui"));
+
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);
